@@ -1,12 +1,8 @@
 # ethereum-local-development-env
 
----
-
 Build a local ethereum development environment for test things out.
 
 ## Requirement
-
----
 
 - Private network (fully control, reproducible, small disk size)
 - Run in docker
@@ -15,15 +11,11 @@ Build a local ethereum development environment for test things out.
 
 ## Prerequisite
 
----
-
 Ethereum geth & tools 1.10.16-stable
 
 Docker 20.10.8
 
 ## Genesis file
-
----
 
 Dump genesis file
 
@@ -78,8 +70,6 @@ Reference:
 [ethereum local development env setup - genesis file](https://github.com/ethereum/go-ethereum/issues/24525)
 
 ## Bootstrap node
-
----
 
 Bootstrap nodes is hardcoded in [ethereum code](https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go)
 
