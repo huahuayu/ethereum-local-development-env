@@ -44,7 +44,7 @@ Change `$chainId` and `$yourEthAddress` (which will get 100 Eth init balance)
   "difficulty": "0x1",
   "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "coinbase": "0x0000000000000000000000000000000000000000",
-	"alloc": {
+  "alloc": {
     "$yourEthAddress": {
       "balance": "0x56bc75e2d63100000"
     }
