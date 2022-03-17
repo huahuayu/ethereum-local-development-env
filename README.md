@@ -59,6 +59,8 @@ Change `$chainId` and `$yourEthAddress` (which will get 100 Eth init balance)
 ## Start the nodes
 
 ```bash
+git clone https://github.com/huahuayu/ethereum-local-development-env.git
+cd ethereum-local-development-env
 ./start_all.sh
 ```
 
