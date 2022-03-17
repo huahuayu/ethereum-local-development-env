@@ -14,53 +14,16 @@ Docker
 
 ## Genesis file
 
-Genesis file is based on the `geth dumpgenesis`
+[Genesis file](https://github.com/huahuayu/ethereum-local-development-env/blob/master/genesis_file/eth/genesis.json) is based on the `geth dumpgenesis`
 
 Change `$chainId` and `$yourEthAddress` (which will get 100 Eth init balance)
-
-```json
-{
-  "config": {
-    "chainId": $chainId,
-    "homesteadBlock": 0,
-    "daoForkBlock": 0,
-    "daoForkSupport": true,
-    "eip155Block": 0,
-    "eip158Block": 0,
-    "byzantiumBlock": 0,
-    "constantinopleBlock": 0,
-    "petersburgBlock": 0,
-    "istanbulBlock": 0,
-    "muirGlacierBlock": 0,
-    "berlinBlock": 0,
-    "londonBlock": 0,
-    "arrowGlacierBlock": 0,
-    "ethash": {}
-  },
-  "nonce": "0x0",
-  "timestamp": "0x0",
-  "extraData": "",
-  "gasLimit": "0x1388",
-  "difficulty": "0x1",
-  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "coinbase": "0x0000000000000000000000000000000000000000",
-  "alloc": {
-    "$yourEthAddress": {
-      "balance": "0x56bc75e2d63100000"
-    }
-  },
-  "number": "0x0",
-  "gasUsed": "0x0",
-  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "baseFeePerGas": null
-}
-```
 
 ## Start the nodes
 
 ```bash
 git clone https://github.com/huahuayu/ethereum-local-development-env.git
 cd ethereum-local-development-env
+chmod +x *.sh
 ./start_all.sh
 ```
 
@@ -107,7 +70,7 @@ You can also pass custom `geth` parameters by
 ```
 
 ## Reference
+
 [Official Private Network Tutorial](https://geth.ethereum.org/docs/getting-started/private-net)
 
 Learnt a lot from https://github.com/vertigobr/ethereum
-
