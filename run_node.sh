@@ -12,10 +12,11 @@ NODE_NAME=${NODE_NAME:-"node1"}
 CONTAINER_NAME=${CHAIN}-${NODE_NAME}
 NODE_DIR=${DATA_DIR}/${NODE_NAME}
 DATA_HASH=${DATA_DIR}/${NODE_NAME}/ethash
+BOOTNODE_URL=$(./get_bootnode_url.sh)
 
 echo "Destroying old container $CONTAINER_NAME..."
 docker rm -f $CONTAINER_NAME &> /dev/null
-BOOTNODE_URL=$(./get_bootnode_url.sh)
+
 if [ ! -f $GENESIS_FILE ]; then
     echo "No genesis.json file found. Aborting."
     exit
@@ -54,3 +55,4 @@ sleep 3
 # print enode
 temp=$(docker logs ${CONTAINER_NAME} 2>&1 | grep enode | head -n 1)
 echo ${temp#*=}
+

@@ -1,5 +1,9 @@
 #!/bin/bash
+WORKING_DIR=$(cd $(dirname $0);pwd)
+cd $WORKING_DIR
+source config/config.conf
 NODE_NAME=$1
 NODE_NAME=${NODE_NAME:-"miner1"}
-ETHERBASE=${ETHERBASE:-"0x0000000000000000000000000000000000000001"}
-./run_node.sh $NODE_NAME --mine --miner.threads=1 --miner.etherbase=$ETHERBASE
+ARGS=${@:2}
+ARGS=${ARGS:-$NODE_ARGS}
+./run_node.sh $NODE_NAME --mine --miner.etherbase=${ETHERBASE} --miner.threads=4 $ARGS
