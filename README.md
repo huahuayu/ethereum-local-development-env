@@ -4,24 +4,17 @@ Build a local ethereum development environment for test things out.
 
 ## Requirement
 
-- Private network (fully control, reproducible, small disk size)
+- Private network (with fully control, reproducible, small disk size)
 - Run in docker
-- Three nodes in the network: one bootstrap node, one miner, and one full node
 - Debug-able
 
 ## Prerequisite
 
-Ethereum geth & tools 1.10.16-stable
-
-Docker 20.10.8
+Docker
 
 ## Genesis file
 
-Dump genesis file
-
-```bash
-geth dumpgenesis
-```
+genesis file is based on the `geth dumpgenesis`
 
 Change `$chainId` and `$your_eth_address` (which will get 100 Eth init balance)
 
@@ -63,18 +56,50 @@ Change `$chainId` and `$your_eth_address` (which will get 100 Eth init balance)
 }
 ```
 
-Reference:
+## Start the nodes
 
-[How to Create an Ethereum Genesis File](https://consensys.net/blog/quorum/hyperledger-besu-how-to-create-an-ethereum-genesis-file/)
+```bash
+./start_all.sh
+```
 
-[ethereum local development env setup - genesis file](https://github.com/ethereum/go-ethereum/issues/24525)
+it will start
 
-## Bootstrap node
+- a bootstrap node
+- a full node
+- and a miner node
 
-Bootstrap nodes is hardcoded in [ethereum code](https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go)
+by default use `host` network
 
-Since you want a private network so you need start a bootnode by yourself.
+## Add new node
 
-```json
-docker pull ethereum/client-go:alltools-v1.10.16
+```bash
+./run_node.sh node2
+```
+
+it can also accept `geth` parameters
+
+```bash
+./run_node.sh node2 --maxpeers 10 --verbosity 4
+```
+
+## Attach node console
+
+```bash
+./attach.sh node1
+./attach.sh miner1
+```
+
+## Check node logs
+
+```bash
+./show_log node1
+./show_log miner1
+```
+
+## Cleanup
+
+`cleanup.sh` will remove docker containers and their data dirs in host machine.
+
+```bash
+./cleanup.sh
 ```
