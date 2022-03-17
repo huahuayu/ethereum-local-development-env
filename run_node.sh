@@ -37,10 +37,20 @@ then
     [ ! "$(docker network ls | grep $DOCKER_NETWORK)" ] && docker network create $DOCKER_NETWORK
 fi
 
+ARGS=${@:2}
+ARGS=${ARGS:-$NODE_ARGS}
+
 echo "Running new container $CONTAINER_NAME..."
 docker run -d --name $CONTAINER_NAME \
     --network $DOCKER_NETWORK \
     -v $NODE_DIR:/root/.ethereum \
     -v $DATA_HASH:/root/.ethash \
     -v $DATA_DIR/${GENESIS_FILE}/genesis.json:/opt/genesis.json \
-    $TOOLS_IMAGE geth --bootnodes=$BOOTNODE_URL $NODE_ARGS --cache=512 --verbosity=4 --maxpeers=10 ${@:2}
+    $TOOLS_IMAGE geth --bootnodes=$BOOTNODE_URL $ARGS
+
+echo "geth --bootnodes=$BOOTNODE_URL $ARGS"
+sleep 3
+
+# print enode
+temp=$(docker logs ${CONTAINER_NAME} 2>&1 | grep enode | head -n 1)
+echo ${temp#*=}
