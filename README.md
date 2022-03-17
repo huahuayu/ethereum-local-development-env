@@ -4,7 +4,7 @@ Build a local ethereum development environment for test things out.
 
 ## Requirement
 
-- Private network (with fully control, reproducible, small disk size)
+- Private network (with fully control, reproducible & small disk size)
 - Run in docker
 - Debug-able
 
@@ -14,9 +14,9 @@ Docker
 
 ## Genesis file
 
-genesis file is based on the `geth dumpgenesis`
+Genesis file is based on the `geth dumpgenesis`
 
-Change `$chainId` and `$your_eth_address` (which will get 100 Eth init balance)
+Change `$chainId` and `$yourEthAddress` (which will get 100 Eth init balance)
 
 ```json
 {
@@ -45,7 +45,7 @@ Change `$chainId` and `$your_eth_address` (which will get 100 Eth init balance)
   "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "coinbase": "0x0000000000000000000000000000000000000000",
 	"alloc": {
-    "$your_eth_address": {
+    "$yourEthAddress": {
       "balance": "0x56bc75e2d63100000"
     }
   },
@@ -62,13 +62,13 @@ Change `$chainId` and `$your_eth_address` (which will get 100 Eth init balance)
 ./start_all.sh
 ```
 
-it will start
+It will start
 
 - a bootstrap node
 - a full node
 - and a miner node
 
-by default use `host` network
+By default use `host` network
 
 ## Add new node
 
@@ -76,7 +76,7 @@ by default use `host` network
 ./run_node.sh node2
 ```
 
-it can also accept `geth` parameters
+You can also pass cumstom `geth` parameters by
 
 ```bash
 ./run_node.sh node2 --maxpeers 10 --verbosity 4
@@ -106,4 +106,4 @@ it can also accept `geth` parameters
 
 ## Reference
 
-learnt a lot from https://github.com/vertigobr/ethereum
+Learnt a lot from https://github.com/vertigobr/ethereum
