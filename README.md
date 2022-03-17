@@ -76,7 +76,7 @@ By default use `host` network
 ./run_node.sh node2
 ```
 
-You can also pass cumstom `geth` parameters by
+You can also pass custom `geth` parameters by
 
 ```bash
 ./run_node.sh node2 --maxpeers 10 --verbosity 4
