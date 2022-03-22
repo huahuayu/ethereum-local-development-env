@@ -20,7 +20,11 @@ Change `$chainId` and `$yourEthAddress` (which will get 100 Eth init balance)
 
 ## Config
 
-Modify the [config file](https://github.com/huahuayu/ethereum-local-development-env/blob/master/config/config.conf) for example, go-ethereum version , datadir etc.
+Modify the [config file](https://github.com/huahuayu/ethereum-local-development-env/blob/master/config/config.conf) 
+
+for example
+- go-ethereum version
+- datadir etc.
 
 ## Start the nodes
 
